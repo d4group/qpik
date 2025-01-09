@@ -1,0 +1,33 @@
+research_task:
+  description: "Wyciągnij informacje o narzędziu z pliku PDF wiertarka.pdf i wygeneruj plik JSON"
+  expected_output: "Plik JSON zawierający uporządkowane informacje o narzędziu"
+  agent: "researcher"
+  output:
+    description: "Dane narzędzia w formacie JSON"
+    file_path: "output/narzedzie_data.json"
+    agent: "researcher"
+    structure:
+      toolName: "string"
+      description: "string"
+      category: 
+        - "string"
+      specifications:
+        chuckSize: "string"
+        voltage: "string"
+        batteryCapacity: "string"
+        maxDrillingDiameter: "string"
+        maxTorque: "string"
+        speeds:
+          - "string"
+        hammerFunction: false
+    input_file: "knowledge/wiertarka.pdf"  # Upewnij się, że ścieżka do pliku PDF jest poprawna
+
+
+reporting_task:
+  description: "Generate a comprehensive report based on the extracted tool information"
+  expected_output: "A formatted report document"
+  agent: "reporting_analyst"
+  output:
+    description: "Final formatted report"
+    agent: "reporting_analyst"
+    file_path: "output/final_report.md"
